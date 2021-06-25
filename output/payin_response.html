@@ -1,0 +1,152 @@
+
+
+<link rel="stylesheet" href="/gateway/Content/bootstrap.min.css" />
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Deposit</title>
+    <link rel="stylesheet" href="/gateway/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+    
+</head>
+<body>
+    <div>
+        
+    </div>
+
+    <form class="needs-validation" method="post">
+        
+        <input name="__RequestVerificationToken" type="hidden" value="5DvwSFsRT9PPR7vBrT2aPnRcqV13Pdrq7rcmWGVYJRaOrxO5uHn9oeLzo4Q_Hu0LS6K4ObwR9dHXJiXdIEb9XLZHmRzv1rjEsM65FB8Dx481" />
+
+        <div style="width:500px; margin:20px auto;">
+                <div class="text-center">
+                    <img src="/gateway/images/logo.png" width="200" alt="Logo">
+                    <br />
+                </div>
+
+            <div>
+                    <h3 class="text-center">存款</h3>
+
+                <hr />
+                <div class="col-sm-12 text-center alert-info">*请于交易途中不要关闭此页面*</div>
+            </div>
+            <br />
+            <div class="form-group row">
+                    <label for="amount">存款金额 (人民币)</label>
+
+                <input type="text" class="form-control" id="amount" name="amount" readonly="readonly" value="1,000.00">
+            </div>
+            
+
+                <div class="form-group row">
+                <label for="remarks">美元</label>
+                <input type="text" class="form-control" id="remarks" name="remarks" readonly="readonly" value="0.00">
+            </div>
+          
+           
+                <div class="form-group row">
+                    <label for="btcamount">可购买比特币</label>
+                    <input type="number" class="form-control" id="btcamount" name="btcamount" readonly="readonly" value="0.00427393">
+                </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-10"><label for="tandc">使用条款</label></div>
+                    <div class="col-sm-2"><a href="TermsAndConditions" target="_blank" class="btn btn-primary">检视</a></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        
+                        <textarea class="form-control" style="overflow-y:scroll; height:100px;font-size:small; border:1px solid" id="tandc" name="tandc" rows="5" readonly>1. 本人同意使用BipiPay产品
+2. 本人确认输入的金额与充值金额无误
+3. **转帐时，请将下页的＂请在备注输入＂一栏的单号填入网银转帐的＂备注＂中</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        我已阅读並同意以上使用条款
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+
+                    <button type="submit" name="submit" class="btn btn-lg btn-info btn-block"><i class="fa fa-lock fa-lg"></i>&nbsp;确认</button>
+                </div>
+            </div>
+
+            
+                <div class="form-group row">
+                    <div class="col-sm-8 card-footer text-center">This transaction is monitored by <br /> BipiExchange</div>
+                    <div class="col-sm-4 text-left align-items-sm-center"><img src="/gateway/images/bphk-logo.png" height="50" /></div>
+                </div>
+
+
+        </div><!--/center div-->
+    </form>
+<script src="/gateway/Scripts/jquery-3.3.1.slim.min.js"></script>
+<script>
+         function getRemainingTime(endtime) {
+            var s = Date.parse(endtime) - Date.parse(new Date());
+            var sec = Math.floor((s / 1000) % 60);
+            var min = Math.floor((s / 1000 / 60) % 60);
+            var hr = Math.floor((s / (1000 * 60 * 60)) % 24);
+
+            return {
+                'ttl': s,
+                'sec': sec,
+                'min': min,
+                'hr': hr
+            };
+        }
+
+        function showRemainingTime(endtime) {
+            //var ctrl = document.getElementById('timer');
+            //var mins = document.getElementById("mins");
+           // var secs = document.getElementById("secs");
+
+            function update() {
+                var s = getRemainingTime(endtime);
+                if (s.ttl>0) {
+                    //mins.innerHTML = ('0' + s.min).slice(-2);
+                    //secs.innerHTML = ('0' + s.sec).slice(-2);
+                }
+                else {
+                    window.location = "/gateway/" + "Error/Timeout";
+                    return;
+                }
+
+                if (s.ttl <= 0) {
+                    clearInterval(timeInterval);
+                }
+            };
+            update();
+            var timeInterval = setInterval(update, 1000);
+        }
+
+         $(document).ready(() => {
+            var deadline = new Date(Date.parse(new Date()) + 180 * 1000);
+            showRemainingTime(deadline);
+
+        });
+
+    </script>
+    
+
+    
+    
+
+</body>
+</html>

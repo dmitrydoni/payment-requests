@@ -1,0 +1,8 @@
+{
+    "amount": 1000,
+    "currency": "RMB",
+    "customer": "8888",
+    "merchant": "TEST_MID",
+    "txcode": 1017,
+    "signed": "36d334420f92930ec42c894f691a3b698327ca7c78e55f44f8df6c2d092d4238eb962ef0190b5765d2ef330a4c6d1bb6db9f91fea1714016af52f7060297c6e6"
+}

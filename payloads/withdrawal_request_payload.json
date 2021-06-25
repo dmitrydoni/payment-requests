@@ -1,0 +1,11 @@
+{
+    "accountno": 1234567898989898989,
+    "amount": 300,
+    "bank": "Bank of China",
+    "branch": "Dongguan Branch",
+    "customer": "8888",
+    "holder": "John Snow",
+    "merchant": "TEST_MID",
+    "txcode": 1020,
+    "signed": "cf8fdcf2331df8381716a109c9d6cf793471ef4ae5dda6dd1e9b1f27e599024753c88e194180bcddbdef622185279db8572dba9a2db9bd0f3b9198a31afa6848"
+}

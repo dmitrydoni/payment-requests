@@ -1,0 +1,9 @@
+{
+    "amount": 1000,
+    "currency": "RMB",
+    "customer": "8888",
+    "merchant": "TEST_MID",
+    "notifyurl": "https://webhook.site/6e75c50c-be7f-410c-b77a-e23d20e6cbdc",
+    "txcode": 1017,
+    "signed": "85cd9970d69cb48c2a328f24a7a8b2825186b84910f8fc846f32d9548da989dfa2e0613541d18187b061112086b562392f7c5cb93a46f3af1e3aa90ce49ee992"
+}
